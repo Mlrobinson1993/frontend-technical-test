@@ -1,5 +1,154 @@
-$bg-colour: #ccc;
+$bg-colour: #fff;
+
+* {
+	font-family: 'Roboto', sans-serif;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
 
 body {
 	background-color: $bg-colour;
+
+	width: 100vw;
+}
+
+#app {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+@media (min-width: 0px) {
+	.vehicle_list {
+		width: 100vw;
+		justify-content: flex-start;
+	}
+
+	.card {
+		width: 100%;
+		max-height: 150px;
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+
+		&_image-container {
+			grid-column: 1;
+			max-height: 150px;
+			width: 150px;
+			overflow: hidden;
+		}
+		&_image-thumbnail {
+			height: 100%;
+			width: auto;
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+			position: relative;
+			left: -60%;
+		}
+
+		&_text-container {
+			max-height: 150px;
+			overflow-y: scroll;
+			grid-column: 2 / 5;
+			display: flex;
+			padding: 0.75rem;
+			flex-direction: column;
+			border-bottom: 1px solid lightgray;
+		}
+
+		&_text-name {
+			font-size: 1rem;
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+		}
+		&_text-price {
+			font-size: 0.8rem;
+			margin-bottom: 1rem;
+			color: gray;
+		}
+		&_text-description {
+			font-size: 0.8rem;
+			color: gray;
+		}
+	}
+}
+
+@media (min-width: 630px) {
+	.vehicle_list {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 3rem;
+	}
+	.card {
+		width: 40%;
+		min-height: 350px;
+		display: flex;
+		flex-direction: column;
+		margin: 1.5rem;
+		border: 1px solid black;
+
+		&_image-container {
+			width: 100%;
+			min-height: 60%;
+		}
+
+		&_image-thumbnail {
+			left: 0;
+			width: 100%;
+			object-fit: cover;
+			height: 100%;
+		}
+
+		&_text-container {
+			align-items: center;
+			border-bottom: none;
+		}
+
+		&_text-name {
+			text-align: center !important;
+			border-top: 2px solid black;
+			border-bottom: 2px solid black;
+			padding: 0.1rem 0;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin-bottom: 1rem;
+		}
+		&_text-price {
+			text-align: center;
+			margin-bottom: 0.5rem;
+		}
+		&_text-description {
+			text-align: center;
+		}
+	}
+}
+
+@media (min-width: 1025px) {
+	#app {
+		display: block;
+	}
+	body {
+		width: auto;
+	}
+	.vehicle_list {
+		flex-wrap: nowrap;
+		overflow-y: scroll;
+		padding: 1rem;
+		height: 100vh;
+		align-items: center;
+	}
+
+	.card {
+		min-width: 350px;
+		min-height: 300px;
+
+		&_image-container {
+			min-height: 75%;
+			max-height: initial;
+		}
+	}
 }

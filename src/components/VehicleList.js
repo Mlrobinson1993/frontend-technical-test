@@ -1,33 +1,48 @@
 import React, { Component } from 'react';
 import { getData } from '../api';
+import VehicleCard from './VehicleCard';
 
-export default
-class VehicleList extends Component {
-
+export default class VehicleList extends Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
-			data: null
-		}
+			isDataVisible: false,
+		};
 	}
-
 	componentDidMount() {
-		getData((data) => {
+		getData(data => {
 			this.setState({
-				data
-			})
+				data,
+			});
 		});
 	}
 
 	render() {
-		if(this.state.data) {
-			console.log(this.state.data);
-		    return (
-			    <h1>Hello World</h1>
-		    )
-	    }
+		const handleDisplayData = () => {
+			this.setState({
+				isDataVisible: true,
+			});
+			console.log(this.state);
+		};
 
-		return (<h1>Loading...</h1>);
+		return (
+			<div className='vehicle_list'>
+				{this.state.isDataVisible ? (
+					this.state.data.map((vehicle, key) => (
+						<VehicleCard
+							key={vehicle.vehicleID}
+							name={vehicle.vehicleID}
+							imgSrc={vehicle.vehicleImg}
+							price={vehicle.vehiclePrice}
+							description={vehicle.vehicleDescription}
+						/>
+					))
+				) : (
+					<button type='button' onClick={handleDisplayData}>
+						Submit
+					</button>
+				)}
+			</div>
+		);
 	}
 }

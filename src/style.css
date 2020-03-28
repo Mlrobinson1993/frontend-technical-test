@@ -1,0 +1,54 @@
+body {
+  background-color: #ccc;
+  height: 100vh;
+  width: 100vw; }
+
+#app {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.spinner {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: 0.25rem solid lightgray;
+  border-top-color: gray;
+  animation: spin 1s infinite linear; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@media (min-width: 480px) {
+  .vehicle_list {
+    border: 1px solid blue;
+    width: 100vw;
+    height: 100%; }
+  .card {
+    width: 100%;
+    min-height: 250px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    border: 1px solid blue; }
+    .card_image-container {
+      grid-column: 1;
+      height: 100%;
+      width: 100%;
+      border: 1px solid red; }
+    .card_text-container {
+      grid-column: 2 / 5; } }
+
+@media (min-width: 801px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */ }
+
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */ }
