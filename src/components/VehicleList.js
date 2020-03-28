@@ -22,7 +22,6 @@ export default class VehicleList extends Component {
 			this.setState({
 				isDataVisible: true,
 			});
-			console.log(this.state);
 		};
 
 		return (
